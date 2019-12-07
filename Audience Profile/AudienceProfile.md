@@ -75,7 +75,7 @@ The main challenges in cub creek water are to control the wastewater discharge a
 ## Contributorship Statement
 * Malik, Nishi, Vincent and Vishekha have contributed to the Audience Profile Task.
 
-* Malik:
+* Malik: Added Communities ( served by organization)
 * Nishi: Added content for goals and challenges.
 * Vincent:
 * Vishekha: Created Markdown Document and Added the content for Organization’s Details, Client’s Information and Organization Values and Mission.
