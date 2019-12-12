@@ -123,7 +123,7 @@ College of Agriculture and Life Sciences. Retrieved from https://extension.arizo
 * Vishekha: Created Markdown Document and Added Content for Introduction, History & Mission and Goal
 * Nishi: Added content for the kind of decisions, interventions, or actions that analysis results could support and added few research questions.
 * Vincent:
-* Malik:
+* Malik: Added content for Research Questions 
 
 ## ProofReader statement
 Vishekha Tamrakar is the proofreader of this document.
