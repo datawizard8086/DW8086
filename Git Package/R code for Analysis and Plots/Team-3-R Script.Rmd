@@ -156,7 +156,7 @@ MSE   <- SSE / dfE
 
 # Analysis of correlation between Turbidity and Conductivity
 
-For this section, we are looking at the correlation between Turbidity and  Conductivity in the North and West sites.
+For this section, we are looking at the correlation between Turbidity and  Conductivity in the North and West site.
 ```{r}
 # Use "VH-Dataset.csv" to run this script
 setwd("C:/Users/hatha/Desktop/ISQA8086/RScripts")
