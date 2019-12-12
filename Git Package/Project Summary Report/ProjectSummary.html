@@ -5,15 +5,60 @@
     <title>Written Summary </title>
 </head>
 <body>
-<h1>Audience Targets </h1>
-<p>
-    Homestead National Monument of America (HOME) is a unit of the National Park Service. In 1966, the National Monument first began as a part of the National Register of Historic Places.
-    The National Monument is 5 miles west of Beatrice, Gage County, and Nebraska. Under the Homestead Act, the site is one of the most successful lands claimed sites.
-    HOME allows qualified volunteers to claim up to 160 acres of land owned by the federal government in exchange for five years of residence, cultivation, and improvement of the property.
-    As a result, more than 270 million acres of land were given to the volunteers. This led to drastic changes in the quality of land which was much needed. The Homestead National Monument has a heritage center inside the park where visitors can learn more about the act and the organization by taking a tour of the interactive museum of the American homesteading.
-    The Homestead Act holds significance for the westward expansion of the United States. It allows any volunteer to claim the land in exchange for taking care of it, keeping it free from contamination, and persuading people to take the best care of the land they live in.
-    The Homestead Act brought far-reaching effects on the landscape and the lives of the people by preserving our resources for future generations.
-</p>
+
+<div>
+    <h1> Background</h1>
+    <p>
+        Homestead Act has been one of the most important legislation in the United States. The very first Homestead was claimed in Brownville, Nebraska by a resident of Ohio name Daniel Freeman in the year 1863. He is the first homesteader in the nation. Daniel served more than 1000 acres and became one of the prominent residents of Gage County. He proposed the idea of memorizing the place he lived in, on his name. Soon after his death, the residents of Beatrice started the agenda of preserving his homestead as National park. Initially, the proposal got rejected by the officials but in the year 1934, the resident of Beatrice organized National Homestead Park Association to continue the deed as performed by The Daniel. [1]
+
+        The Association could not do much due to funds issue and soon after America entered World War II the park visitation and development was suspended. [1]
+
+        However, in the year 1950, the national park service (NPS) acquired the park and built the visitor center. Gradually there was some positive progress towards the development and in the year 1981, the National Monument had five permanent employees, one part-time and a few seasonal employees. [1]
+
+       In the 1970s and 1980s seasonal rangers demonstrated the history of the Homestead Act. By the early 1990s, the Homestead Act began to move to other states in the country. [1]
+
+    </p>
+
+</div>
+<div>
+    <h1> Data Source and Processing</h1>
+    <p>
+        HOME's another initiative is to invite students or any other group of people wanting to participate, monitoring water quality in the park. We received data set from our client Jesse Bolli, Resource Management Specialist at HOME, where observations were recorded regarding water quality in the park.
+        The data set consist of 1061 rows and 53 columns. Data set includes data regarding water quality such as Precipitation Current Day, Water Temperature, pH level of the water, Conductivity, Turbidity, Nitrates, Total Phosphate, Alkalinity Average etc. The data set has observations that were recorded from the year 2002 till 2016.
+    </p>
+    <h2> Processing</h2>
+    <p>
+        As per our data research questions, we have filtered our dataset from the year 2013 to the year 2017. We could see how the water quality between the two sites changes in these 5 years. We have removed some unnecessary columns and rows to ensure the rationality about the data cleaning.
+        We have combined the day, month, and year column into a single column named Date. We have simplified the column name to make it easier to use. Additionally, we have filled the mean value for temperature in the missing location as the temperature will not vary too much for a given season. In the column ObservationSite, same name has written in different patterns, so we changed it into single pattern (north -> North, west -> West). Also, we have converted all decimal values to two decimal points so that it will be easier to read and use the data.
+    </p>
+</div>
+<h1> Research Questions </h1>
+<div>
+    <ol>
+       <li> Does season or temperature affect the amount of E.coli? (Winter vs. summer?) </li>
+        <li> Does precipitation affect the amount of E.coli? (Sewage water?) </li>
+        <li> Does precipitation (rainy season) affect the pH level? (Acid rain? Water flowing from the street?) </li>
+        <li> Does precipitation affect water conductivity? (Pollution water flowing in?) </li>
+        <li> What factors affect water quality the most? (Solved using Multiple Regression approach) </li>
+        <li> What models can we try to find the relationship between water quality and other parameters in the given dataset? </li>
+        <li> What parameters are dependent and which ones are independent? </li>
+        <li> Does time (HH:MM: SS) affect Float test 1 to float test 5? </li>
+        <li>Could you please clarify about the sites NEGP and WGP? What does it stand for and how water flows in these four sites north, west, NEGP, and WGP? </li>
+    </ol>
+</div>
+<div>
+    <h1>Audience Targets </h1>
+    <p>
+        Homestead National Monument of America (HOME) is a unit of the National Park Service. In 1966, the National Monument first began as a part of the National Register of Historic Places.
+        The National Monument is 5 miles west of Beatrice, Gage County, and Nebraska. Under the Homestead Act, the site is one of the most successful lands claimed sites.
+        HOME allows qualified volunteers to claim up to 160 acres of land owned by the federal government in exchange for five years of residence, cultivation, and improvement of the property.
+        As a result, more than 270 million acres of land were given to the volunteers. This led to drastic changes in the quality of land which was much needed. The Homestead National Monument has a heritage center inside the park where visitors can learn more about the act and the organization by taking a tour of the interactive museum of the American homesteading.
+        The Homestead Act holds significance for the westward expansion of the United States. It allows any volunteer to claim the land in exchange for taking care of it, keeping it free from contamination, and persuading people to take the best care of the land they live in.
+        The Homestead Act brought far-reaching effects on the landscape and the lives of the people by preserving our resources for future generations.
+    </p>
+
+</div>
+
 <embed src="North%20Site%20Analysis.pdf" alt="plots" width="700px" height="500px">
 <h1> Analysis </h1>
 <p>
@@ -43,27 +88,36 @@ with the value of the fitted outcome variable, suggesting no non-constant varian
 </p>
 
 <p>
-    A simple linear regression was applied to predict a continuous outcome variable (y)  which pH value of water in this case based on one single predictor variable (x) which is level of Alkalinity in water in this case for North Site.
+    A simple linear regression was applied to predict a continuous outcome variable (y)  which pH value of water in this case based on one single predictor variable (x) which is level of Dissolved Oxygen in water in this case for West Site.
 
     The outcome of linear regression model was plotted using ggplot which provides us with the above mentioned plot.
 
-<h2>The conclusions so drawn from ggplots are:-</h2>
 
-
-
-    1.Residual Vs Fitted: Used to check the linear relationship assumptions. A horizontal line, without distinct patterns is an indication for a linear relationship, which is good. In this case there is no fitted pattern in the residual plot. This suggests that we can assume linear
-
-    relationship between the predictors and the outcome variables.
-
-    2. Normal Q-Q: Used to examine whether the residuals are normally distributed. It’s good if residuals points follow the straight dashed line. In this case many observations are far away from the expected line therefore not normally distributed.
-
-
-
-    3. Standardized Residual Plot: The plot shows if residuals are spread equally along the ranges of predictors. It’s good if we see a horizontal line with equally spread points. In this case, this is not the case. It can be seen that the variability (variances) of the residual points is random with the value of the fitted outcome variable, suggesting no non-constant variances in the residuals errors.
-
-
-
-    4.Residue Vs Leverage: Used to identify influential cases, that is extreme values that might influence the regression results when included or excluded from the analysis. In this case the three observations visible as high leverage points and should be well investigated.
+<div>
+    <embed src="Vincent_plots.pdf" alt="plots" width="700px" height="500px">
+<p>
+    For the two plots below, we are trying to look at the changes in Turbidity/Conductivity between the North and West sites. By using geom point, we can see the changes when the points go up and down. We also faceted the plots based on the years to make sure that we are only comparing the monthly differences of a specific year. Finally, we distinguished the two sites with color.
+    To interpret these plots, we need to look at the specific month and see if the clusters of points are close to each other which means there is not much of a difference between the two sites. In a perfect world, we expect the cluster of points to lay over each other which means there are no differences. For instance, by looking at September 2015 of the first plot, we can tell that there is a big difference in measurements between the two sites. Additionally, a typical freshwater stream will be between 150 and 500 µhos/cm.
+    Overall, the Conductivity between the North and the West sites didn’t change much. However, the September of 2015 had a big difference between the 2 sites. This could be due to oil contaminated water flowing through rainy days. As for Turbidity, the plot indicates higher turbidity during rainy season during fall. For 2015, we are missing data from June to December which explained why there is a gap in our plot.
 </p>
+</div>
+
+<div>
+    <h1> Reference</h1>
+    <cite>
+        <ol>
+            <li> Homestead National Monument of America Retrieved from https://en.wikipedia.org/wiki/Homestead_National_Monument_of_America </li>
+            <li>Aquatic invertebrate community trends and water quality at Homestead National Monument of America, Nebraska, 1996-2012 Retrieved from https://bioone.org/journals/transactions-of-the-kansas-academy-of-science/volume-116/issue-3-4/062.116.0301/Aquatic-Invertebrate-Community-Trends-and-Water-Quality-at-Homestead-National/10.1660/062.116.0301.short </li>
+            <li> National Park Service Retrieved From https://www.nps.gov/home/learn/historyculture/abouthomesteadactlaw.htm </li>
+            <li> How much water is there on Earth Retrieved From https://www.usgs.gov/special-topic/water-science-school/science/how-much-water-there-earth?qt-science_center_objects=0#qt-science_center_objects </li>
+            <li> Summary of the Clean Water Act Retrieved From https://www.epa.gov/laws-regulations/summary-clean-water-act </li>
+            <li> Water Quality Monitoring Retrieved From http://www.longwood.edu/cleanva/images/Sec5.WQMchapter.pdf </li>
+            <li> Chapter 5 Water Quality Conditions Retrieved From https://archive.epa.gov/water/archive/web/html/vms50.html</li>
+            <li> Cub creek water quality project Retrieved from https://www.nps.gov/home/learn/nature/cubcreekwaterquality.htm </li>
+            <li> pH and water. USGS science for a changing world Retrieved from https://www.usgs.gov/special-topic/water-science-school/science/ph-and-water?qt-science_center_objects=0#qt-science_center_objects </li>
+            <li> Rock,C., & Rivera, B.(2014, march). Water Quality, E. coli and Your Health. The University of Arizona, College of Agriculture and Life Sciences. Retrieved from https://extension.arizona.edu/sites/extension.arizona.edu/files/pubs/az1624.pdf </li>
+        </ol>
+    </cite>
+</div>
 </body>
 </html>
