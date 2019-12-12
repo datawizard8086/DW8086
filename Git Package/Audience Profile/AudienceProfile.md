@@ -49,7 +49,7 @@ Predicting and controlling amount of wastewater discharge and industrial chemica
 
 ### Communities (served by organization)
 
-Homestead monitors couple of parameters such as 	
+Homestead monitors couple of parameters such as:
 * Air
 * Water
 * Wild Life
