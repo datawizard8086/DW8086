@@ -94,6 +94,7 @@ The Contributorship Summary below provides details of the tasks done by each whi
 |Project Contributorship Summary       |Vishekha	| December 5th |
 |Final Git Package Proofreader	  |Vishekha    |December 11th |
 |Submit GIT Repository Package  |       Nishi                | December 12th |
+|Git Package Proofreader	|Vishekha | December 12th |
 
 
 ### Tool Used for Communication Among Team Members
