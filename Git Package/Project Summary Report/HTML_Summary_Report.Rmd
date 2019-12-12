@@ -1,0 +1,159 @@
+---
+title: "HTML Summary Report"
+author: "Data Wizards"
+date: "12/12/2019"
+output: html_document
+---
+
+# Project Summary Report 
+
+## Background Research 
+
+Homestead National Monument of America (HOME) is a unit of National Park Service. [1]
+The National Monument first began part of the National Register of Historic places in the year 1966. [1]
+The National Monument 5 miles west of Beatrice, Gage County, and Nebraska. This site is now one among the most successfully claimed acres claimed under the Homestead Act. [1]
+HOME allowed qualified people to claim up to 160 acres of land owned by the federal government in exchange for five years of residence, cultivation and improving the property in every possible way. [1] Because of this act, approximately 270 million or 10% of total area of the United States was claimed and settled under this Act. This led to drastic changes in the land which was eventually needed. [3]
+The Homestead National Monument has a heritage center inside the park where visitors can learn more about the act and the organization by taking a tour of the interactive museum of American homesteading. [1]
+
+Homestead Act holds one of the greater significances for the westward expansion of the United States. It allowed a fair chance to any mankind to claim land for free in exchange for taking care of it keeping it free from contamination, persuading people to take the best care of it. [3]
+
+The Homestead Act brought far-reaching effects on the landscape and in the lives of the people.
+
+To raise concerns regarding water quality HOME monitored aquatic invertebrates which started in the year 1996. The quality of the water was measured against the following factors: -
+temperature, dissolved oxygen, specific conductance, pH, turbidity, nitrate-nitrogen, total phosphorus, and fecal coliform bacteria (Escherichia coli). Most of the factors met the standards. However, few of the factors like phosphorus concentrations, turbidity, and fecal coliform bacteria were found to be very high. Summary data showing metric for phosphorus concentrations, turbidity, and fecal coliform bacteria, indicated that the water quality is not appropriate and not biologically supported. Thereby, HOME decided to protect and manage the in-stream habitats. [2]
+
+## The Research Questions 
+
+ * Does precipitation affect the amount of E.coli for North Site and West Site?  
+ * How E.coli variable varied in North Site and West Site from the year 2013 till 2017? 
+ * Does turbidity and conductivity varies in North Site and West Site?
+ * What factors(Dissolved Oxygen and Alkalinity) affect pH level of water in North Site and West Site?
+
+## The Study Organism and Phenomenon 
+Water is essential to all life on Earth. In fact, “about 71 percent of the Earth's surface is water-covered, and the oceans hold about 96.5 percent of all Earth's water” [4]. However, freshwater only contributes to a tiny fraction of that amount. Additionally, freshwater supports most living things on Earth which makes it extremely important to keep the source of life safe and clean.
+
+In 1972, the U.S. government introduced the Clean Water Act (CWA) to conserve the quality of surface water. This act was introduced to make sure that all sources of surface water like lakes, streams, and rivers are regulated. From this point onward, the Environmental Protection Agency (EPA) regulates the water quality standards and requirements. According to the United States Environmental Protection Agency, “the CWA made it unlawful to discharge any pollutant from a point source into navigable waters, unless a permit was obtained” [5]. For instance, the EPA set the threshold for the acceptable amount of pollutants and wastewater standards for the industry.
+
+Acknowledge the importance of water quality, many park rangers and water quality professionals have been monitoring the quality of surface water throughout the country. By monitoring water quality, the researchers can identify specific contaminations, trends, and whether the water meets EPA standards. To identify contaminations, the researchers need to look at various chemical constituents like phosphorus, nitrate, and dissolved oxygen. Some of the common factors that lead to water pollution are “the number of people living in a watershed, how the land is used (agriculture, forested, urbanized, etc.) and the everyday behavior of the population” [6]. Also, the researchers need to look at some other components like the streamflow, temperature, pH level, turbidity, total solids, conductivity, total alkalinity, and Fecal bacteria. The combinations of all these measurements help pinpoint the source of the contamination. For instance, if the source of the contamination is from industrial discharge, the researchers can expect to have unusual measurements on the temperature, the conductivity, the total solids, the toxics, and the pH level. In general, the water temperature from upstream to downstream shouldn’t change too drastically so it would be a good signal to let the researchers know that the water might be contaminated.
+
+The flow of a surface water stream has high impacts on the living organisms and inhabitants. To illustrate, a big water stream with a high discharge rate will have more capacity to dilute wastewater than a small water stream with a low discharge rate. Moreover, by studying the flow of a stream, the researchers will be able to identify the kinds of living organisms live in that stream. To measure the streamflow is to calculate the movement of water over a specific area over a set time.
+
+Besides water, oxygen is another important element that supports all life on Earth. However, unlike photosynthesis, water produces and consumes oxygen in its unique way. For example, a water stream will gain oxygen from the surrounding environment and dissolve through various chemical reactions that utilize oxygen. Furthermore, “dissolved oxygen (DO) is important to the health of aquatic ecosystems, as all aquatic animals need oxygen for respiration” [6]. By measuring dissolved oxygen, the researchers can predict the trend of migration from living organisms when the dissolved oxygen levels are low. Other variables, such as temperature has a direct impact on the dissolved oxygen level since hot water holds less oxygen than cold water.
+
+Like dissolved oxygen, the temperature has a huge effect on the aquatic habitats. To give an example, “water temperature influences the rate of plant photosynthesis, the timing of reproduction and migration, and the metabolic rates of aquatic organisms” [6]. Some aquatic organisms like trout and salmon prefer lower water temperature, therefore, an increase in water temperature would likely lead to a lower population of those organisms. Many factors can cause temperature change include weather, industrial wastewater discharges, sewage water, and the dimensions of the stream.
+
+Like temperature, pH level and total alkalinity link to the rate of biological and chemical processes. Moreover, “pH is a measure of how acidic or basic (alkaline) a solution is” [6]. The appropriate pH level for most aquatic organisms is ranging from 6.5 to 8.0. With a low pH level, the water stream becomes acidic which will produce a toxic environment to aquatic organisms. The sources of contamination can come from many sources like acid rain, mineral rocks, or industrial water discharges. With total alkalinity, it is the measurement of how the water stream can tolerate acids. Therefore, by measuring the total alkalinity, the researchers can identify the degree in which a water stream can handle acid inputs and its potential to neutralize acidic contaminations.
+
+## Source Data and Processing 
+
+**Data Set Description** 
+The Homestead National Monument of America (HOME), which is a unit of the National Park System, commemorates passage of the Homestead Act of 1862. Through this act, any qualified person can claim up to 160 acres of federally owned land in exchange for five years of residence and a promise to cultivate and take proper care of the land.
+
+HOME's another initiative is to invite students or any other group of people wanting to participate, monitoring water quality in the park. We received data set from our client Jesse Bolli, Resource Management Specialist at HOME, where observations were recorded regarding water quality in the park.
+
+The data set consist of 1061 rows and 53 columns. Data set includes data regarding water quality such as Precipitation Current Day, Water Temperature, pH level of the water, Conductivity, Turbidity, Nitrates, Total Phosphate, Alkalinity Average etc. The data set has observations that were recorded from the year 2002 till 2016.
+
+**Policy Constraints** 
+ 
+The Homestead National Monument water quality project is an open project intended for public use. We have invited the Beatrice Middle School's students to study the water quality of cub creek. These data can be used for the data analysis but should not be used for commercializing and any means of business. The main intention of this project to maintain the quality of water and analyze the problems if it's there and provide a better decision for a better future and cultivation.
+
+**Metadata Description** 
+The Dataset that we our using for our project analysis, all the observations were recorded while monitoring the water quality against various contents found in water during the event. Dataset includes variables such as Precipitation Current Day, Water Temperature, pH level of the water, Conductivity, Turbidity, Nitrates, Total Phosphate, Alkalinity Average etc. The data set has observations that were recorded from the year 2002 till 2017.
+As a part of data cleaning process, we selected observations that were recorded from the year 2013 till 2017.To monitor the quality of water, following factors were measured:
+temperature of the water, pH level, conductivity, level of dissolved Oxygen found in water, content of Nitrates, phosphates, average of alkalinity, volume of sand, slit, gravel, etc., found in water. Each observation was made at a site on a specific date of the month and year. The degree of measure of each variable is well described in the data set for instance the level of sand, slit and gravel was measured in percentage. While the level of Nitrates, Phosphates, Total Sulphates, etc. were found in mg/L.
+The observations included in the dataset provides us with enough information to speculate the quality of water over the period of five years that is from 2013 till 2017 inclusively.
+
+
+**Issues with the Data Set** 
+
+Following are the issues that were observed in the data set provided by the stakeholder:
+* There are three separate columns for a date (Day, Month, Year).
+* Unnecessary rows and columns are there.
+* Rows with missing values or no values.
+* Same name has written in different patterns in the column ObservationSite.
+* Columns that were supposed to hold numeric values just like other rows in the column but holds value such as NV instead of   NULL or be an empty cell.
+* Number of Decimal places of decimal values is not uniformed along the dataset.
+
+## Description of steps undertaken by the team to resolve the issues with Data set 
+
+As per our data research questions, we have filtered our dataset from the year 2013 to the year 2017. We could see how the water quality between the two sites changes in these 5 years. We have removed some unnecessary columns and rows to ensure the rationality about the data cleaning. We have combined the day, month, and year column into a single column named Date. We have simplified the column name to make it easier to use. Additionally, we have filled the mean value for temperature in the missing location as the temperature will not vary too much for a given season. In the column ObservationSite, same name has written in different patterns, so we changed it into single pattern (north -> North, west -> West). Also, we have converted all decimal values to two decimal points so that it will be easier to read and use the data.
+
+These are the preliminary steps to create MasterWaterQualityEntryAdded.xlsx:  
+- Filled in Temperature and Precipitation by using extra spreadsheets from Jesse  
+- Calculated the mean for pH, Conductivity, and DissolvedOxygen columns  
+- Filled empty cells of pH, Conductivity, and Dissolved columns with the calculated means
+
+
+# Overall Summary to Research Question  
+ 
+### Plot: E coli Value for North and West sites 
+
+![Ecoli](https://github.com/datawizard8086/DW8086/blob/master/Git%20Package/Project%20Summary%20Report/EColi.PNG)
+
+The above graph shows the E.coli value from the year 2013 to 2017 for the North and West sites. As we know that E.coli value in water should not be exceeded 575 colonies per 100 ml of water. Based on our analysis, the amount of E-coli was usually higher than the standard value in the west site compared to the north site. In fact, we can also see that there is a significant difference between north and west site water in terms of E.coli. There is no specific month for the high value of E.coli. We also checked the precipitation event preceding the date when E.coli value is higher. However, we don’t have any precipitation data for that day. Therefore, we concluded that there must be some other ways for contamination water to enter the water stream between the north and west sites which contains animal or human waste. We need to look over those places and try to block those water entering areas or Spread the awareness of water to the locals, farmers, and everyone.
+
+   
+
+### Plot: Precipitation Value for North and West sites 
+
+![Precipitation](https://github.com/datawizard8086/DW8086/blob/master/Git%20Package/Project%20Summary%20Report/Precipitation.PNG)
+
+### R plots for pH level of water with respect to Dissolved Oxygen 
+
+![Dissolved Oxygen](https://github.com/datawizard8086/DW8086/blob/master/Git%20Package/Project%20Summary%20Report/DissolvedO2.PNG)
+
+A simple linear regression was applied to predict a continuous outcome variable (y)  which pH value of water in this case based on one single predictor variable (x) which is level of Dissolved Oxygen in water in this case for North Site.
+The outcome of linear regression model was plotted using ggplot which provides us with the above mentioned plot.
+The conclusions so drawn from ggplots are:-
+
+1.Residual Vs Fitted: Used to check the linear relationship assumptions. A horizontal line, without distinct patterns is an indication for a linear relationship, which is good. In this case there is almost no pattern in the residual plot. This suggests that we cannot assume linear relationship between the predictors and the outcome variables.
+
+2. Normal Q-Q: Used to examine whether the residuals are normally distributed. It’s good if residuals points follow the straight dashed line. In this case many observations are far away from the expected line therefore not normally distributed.
+
+3. Standardized Residual Plot: The plot shows if residuals are spread equally along the ranges of predictors. It’s good if we see a horizontal line with equally spread points. In this case, this is not the case. It can be seen that the variability (variances) of the residual points is haphazard with the value of the fitted outcome variable, suggesting no non-constant variances in the residuals errors.
+
+4. Residue Vs Leverage: Used to identify influential cases, that is extreme values that might influence the regression results when included or excluded from the analysis. In this case the two observations 186 and 188 show high leverage point and should be well investigated.
+
+### R plots for pH level of water with respect to Alkalinity 
+
+![Alkalinity](https://github.com/datawizard8086/DW8086/blob/master/Git%20Package/Project%20Summary%20Report/Alkalinity.PNG)
+
+A simple linear regression was applied to predict a continuous outcome variable (y)  which pH value of water in this case based on one single predictor variable (x) which is level of Alkalinity in water in this case for North Site.
+The outcome of linear regression model was plotted using ggplot which provides us with the above mentioned plot.
+The conclusions so drawn from ggplots are:-
+
+1.Residual Vs Fitted: Used to check the linear relationship assumptions. A horizontal line, without distinct patterns is an indication for a linear relationship, which is good. In this case there is no fitted pattern in the residual plot. This suggests that we can assume a linear relationship between the predictors and the outcome variables.
+2. Normal Q-Q: Used to examine whether the residuals are normally distributed. It’s good if residuals points follow the straight dashed line. In this case many observations are far away from the expected line therefore not normally distributed.
+
+3. Standardized Residual Plot: The plot shows if residuals are spread equally along the ranges of predictors. It’s good if we see a horizontal line with equally spread points. In this case, this is not the case. It can be seen that the variability (variances) of the residual points is random with the value of the fitted outcome variable, suggesting no non-constant variances in the residuals errors.
+
+4.Residue Vs Leverage: Used to identify influential cases, that is extreme values that might influence the regression results when included or excluded from the analysis. In this case the three observations visible as high leverage points and should be well investigated.
+
+### Differences of Turbidity/Conductivity between the North and West sites 
+
+![Conductivity](https://github.com/datawizard8086/DW8086/blob/master/Git%20Package/Project%20Summary%20Report/Conductivity.PNG)
+
+![Turbidity](https://github.com/datawizard8086/DW8086/blob/master/Git%20Package/Project%20Summary%20Report/Turbidity.PNG)
+ 
+ For the two plots below, we are trying to look at the changes in Turbidity/Conductivity between the North and West sites. By using geom point, we can see the changes when the points go up and down. We also faceted the plots based on the years to make sure that we are only comparing the monthly differences of a specific year. Finally, we distinguished the two sites with color.
+    To interpret these plots, we need to look at the specific month and see if the clusters of points are close to each other which means there is not much of a difference between the two sites. In a perfect world, we expect the cluster of points to lay over each other which means there are no differences. For instance, by looking at September 2015 of the first plot, we can tell that there is a big difference in measurements between the two sites. Additionally, a typical freshwater stream will be between 150 and 500 µhos/cm.
+    Overall, the Conductivity between the North and the West sites didn’t change much. However, the September of 2015 had a big difference between the 2 sites. This could be due to oil contaminated water flowing through rainy days. As for Turbidity, the plot indicates higher turbidity during rainy season during fall. For 2015, we are missing data from June to December which explained why there is a gap in our plot.
+
+
+
+**The Word Count for the Report is 2930.s** 
+
+# Reference 
+
+1. Homestead National Monument of America Retrieved from https://en.wikipedia.org/wiki/Homestead_National_Monument_of_America 
+2. Aquatic invertebrate community trends and water quality at Homestead National Monument of America, Nebraska, 1996-2012 Retrieved from https://bioone.org/journals/transactions-of-the-kansas-academy-of-science/volume-116/issue-3-4/062.116.0301/Aquatic-Invertebrate-Community-Trends-and-Water-Quality-at-Homestead-National/10.1660/062.116.0301.short 
+3. National Park Service Retrieved From https://www.nps.gov/home/learn/historyculture/abouthomesteadactlaw.htm 
+4. How much water is there on Earth Retrieved From https://www.usgs.gov/special-topic/water-science-school/science/how-much-water-there-earth?qt-science_center_objects=0#qt-science_center_objects 
+5. Summary of the Clean Water Act Retrieved From https://www.epa.gov/laws-regulations/summary-clean-water-act 
+6. Water Quality Monitoring Retrieved From http://www.longwood.edu/cleanva/images/Sec5.WQMchapter.pdf 
+7. Chapter 5 Water Quality Conditions Retrieved From https://archive.epa.gov/water/archive/web/html/vms50.html 
+8. Cub creek water quality project Retrieved from https://www.nps.gov/home/learn/nature/cubcreekwaterquality.htm 
+9. pH and water. USGS science for a changing world Retrieved from https://www.usgs.gov/special-topic/water-science-school/science/ph-and-water?qt-science_center_objects=0#qt-scienc e_center_objects 
+10. Rock,C., & Rivera, B.(2014, march). Water Quality, E. coli and Your Health. The University of Arizona,College of Agriculture and Life Sciences. Retrieved from https://extension.arizona.edu/sites/extension.arizona.edu/files/pubs/az1624.pdf 
+
+
