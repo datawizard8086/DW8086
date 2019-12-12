@@ -1,0 +1,263 @@
+---
+title: "Team 3 R Plots"
+author: "Vishekha, Vincent, Nishi and Malik"
+date: "11/12/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_knit$set(root.dir = "C:/Users/hatha/Desktop/DataExploration/DW8086/Git Package/HTML Document for R Script and R Plots/Dataset", echo = TRUE)
+library("readxl")
+library("ggplot2")
+library(ggfortify)
+```
+# **Data Cleaning Documentation**
+
+## Overview
+As per our data research questions, we have filtered our dataset from the year 2013 to the year 2017. We could see how the water quality between the two sites changes in these 5 years. We have removed some unnecessary columns and rows to ensure the rationality about the data cleaning. We have combined the day, month, and year column into a single column named Date. We have simplified the column name to make it easier to use. Additionally, we have filled the mean value for temperature in the missing location as the temperature will not vary too much for a given season.  In the column ObservationSite, same name has written in different patterns, so we changed it into single pattern (north -> North, west -> West). Also, we have converted all decimal values to 2 decimal points so that it will be easier to read and use the data.
+
+## Issues with the Data Set
+Following are the issues that were observed in the data set provided by the stakeholder:
+* There are three separate columns for a date (Day, Month, Year).
+* Unnecessary rows and columns are there.
+* Rows with missing values or no values.
+* Same name has written in different patterns in the column ObservationSite.
+* Columns that were supposed to hold numeric values just like other rows in the column but holds value such as NV instead of   NULL or be an empty cell.
+* Number of Decimal places of decimal values is not uniformed along the dataset.
+
+## Instructions
+These are the preliminary steps to create MasterWaterQualityEntryAdded.xlsx:  
+- Filled in Temperature and Precipitation by using extra spreadsheets from Jesse  
+- Calculated the mean for pH, Conductivity, and DissolvedOxygen columns  
+- Filled empty cells of pH, Conductivity, and Dissolved columns with the calculated means
+
+First in the R file we read the MasterWaterQualityEntryAdded.xlsx file, you need to change the path to match up with the directory where the excel file is located.
+Change the Path, next we filter for the year 2012 and 2017. Third step unnecessary columns are removed. Fourth step all header names are renamed to remain consistent.
+Finally, once the data set has all the necessary fields, we need some rows which have NV value they are replaced with NA.  Few values are converted to numeric and using the
+write.csv command we store the file in CSV format (reviseddata.csv).
+
+```{r data cleaning, echo=FALSE, warning=FALSE}
+##Import csv file, skip the first 2 rows, and use the 3rd row as header
+my_data<-read_excel("C:/Users/hatha/Desktop/DataExploration/DW8086/Git Package/HTML Document for R Script and R Plots/Dataset/MasterWaterQualityEntryAdded.xlsx",sheet="Sheet1", skip = 2,col_types =NULL ,col_names = TRUE)
+
+##Remove the first row since it is a unit row
+mydataset <- my_data [-c (1),]
+
+##Filter 2013-2017 data
+newdata1<- subset(mydataset,mydataset$Year>2012 & mydataset$Year<2018)
+
+##Combine Day, Month, & Year columns into Date column
+newdata1$Date <- as.Date(with(newdata1, paste(Year, Month, Day,sep="-")), "%Y-%m-%d")
+
+##Remove unnecessary columns
+newdata2<-newdata1[,c(4,5,6,8,10,11,12,13,17,24,25,46,47,50,53)]
+
+##Rename header names
+names (newdata2)[2]<- "ObservationSite"
+names (newdata2)[3]<- "TempF"
+names (newdata2)[4]<- "Precipitation"
+names (newdata2)[5]<- "WaterTemp"
+names (newdata2)[8]<- "DissolvedOxygen"
+names (newdata2)[10]<- "FloatAverage"
+names (newdata2)[13]<- "Phosphates"
+names (newdata2)[14]<- "Sulfate"
+names (newdata2)[15]<- "Alkalinity"
+
+
+##Capitalized first letter in observation site
+
+capFirst<- function(s){paste(toupper(substring(s, 1, 1)), substring(s, 2), sep = "")}
+newdata2$ObservationSite<-capFirst(newdata2$ObservationSite)
+
+
+##Replaced NA with the mean value of Water temp
+
+data1<-newdata2
+data1$WaterTemp= as.numeric(as.character(data1$WaterTemp))
+data1$WaterTemp[which(is.na(data1$WaterTemp))]<-mean(data1$WaterTemp,na.rm= TRUE)
+
+data1<-newdata2
+data1$WaterTemp= as.numeric(as.character(data1$WaterTemp))
+data1$WaterTemp[which(is.na(data1$WaterTemp))]<-mean(data1$WaterTemp,na.rm= TRUE)
+
+##Convert the data in numeric form and upto 2 decimal points
+data1$WaterTemp= as.numeric(as.character(data1$WaterTemp))
+data1$WaterTemp<-round(data1$WaterTemp,2)
+
+data1$TempF=as.numeric(as.character(data1$TempF))
+data1$TempF<-round(data1$TempF,2)
+
+data1$Precipitation=as.numeric(as.character(data1$Precipitation))
+data1$Precipitation<-round(data1$Precipitation,2)
+
+data1$pH=as.numeric(as.character(data1$pH))
+data1$pH<-round(data1$pH,2)
+
+data1$Conductivity=as.numeric(as.character(data1$Conductivity))
+data1$Conductivity<-round(data1$Conductivity,2)
+
+data1$DissolvedOxygen=as.numeric(as.character(data1$DissolvedOxygen))
+data1$DissolvedOxygen<-round(data1$DissolvedOxygen,2)
+
+data1$Turbidity=as.numeric(as.character(data1$Turbidity))
+data1$Turbidity<-round(data1$Turbidity,2)
+
+data1$FloatAverage=as.numeric(as.character(data1$FloatAverage))
+data1$FloatAverage<-round(data1$FloatAverage,2)
+
+data1$Velocity=as.numeric(as.character(data1$Velocity))
+data1$Velocity<-round(data1$Velocity,2)
+
+data1$Nitrates=as.numeric(as.character(data1$Nitrates))
+data1$Nitrates<-round(data1$Nitrates,2)
+
+data1$Phosphates=as.numeric(as.character(data1$Phosphates))
+data1$Phosphates<-round(data1$Phosphates,2)
+
+data1$Sulfate=as.numeric(as.character(data1$Sulfate))
+data1$Sulfate<-round(data1$Sulfate,2)
+
+data1$Alkalinity=as.numeric(as.character(data1$Alkalinity))
+data1$Alkalinity<-round(data1$Alkalinity,2)
+
+##Write Function
+write.csv(data1,"C:/Users/hatha/Desktop/DataExploration/DW8086/Git Package/HTML Document for R Script and R Plots/Dataset/reviseddata.csv")
+```
+
+
+# **R plots and R scripts**
+
+## Overview
+
+For this chunk of plots, a new cleaned dataset **"VH-Dataset-NWplot.csv"** had been created. This dataset contained data from 2013-2017 and only for North and West sites. The four plots below show the monthly differences in Turbudidy and Conductivity between North and West sites.
+
+## Differences of Turbidity/Conductivity between the North and West sites (using geom point)
+
+Part of the analysis we did between Turbidity and Conductivity is identifying the connection between the two varibles. To do so, we used linear regression and the results show that there is no linear relationship with the R-squared value of 0.2915.
+
+```{r geom_point_facet, echo=FALSE, warning=FALSE}
+dataset <- read.csv("VH-Dataset-NWplot.csv")
+
+attach(dataset)
+
+# Linear regression to find out the connection between Turbidity and Conductivity
+reg <- lm(Turbidity ~ Conductivity)
+summary(reg)
+# Results show that there is no linear relationship with the R-squared value of 0.2915
+```
+
+#### **Plots**
+For the two plots below, we are trying to look at the changes in Turbidity/Conductivity between the North and West sites. By using geom point, we can see the changes when the points go up and down. We also faceted the plots based on the years to make sure that we are only comparing the monthly differences of a specific year. Finally, we distinguished the two sites with color.
+
+To interpret these plots, we need to look at the specific month and see if the clusters of points are close to each other which means there is not much of a difference between the two sites. In a perfect world, we expect the cluster of points to lay over each other which means there are no differences. For instance, by looking at September 2015 of the first plot, we can tell that there is a big difference in measurements between the two sites.
+
+```{r , echo=FALSE, warning=FALSE}
+# ggplot with geompoint and facet wrap
+ggplot(data = dataset) + 
+  geom_point(mapping = aes(x = Month, y = Conductivity, color = ObservationSite)) + 
+  facet_wrap(~ Year, nrow = 2)+ggtitle("Conductivity differences between North and West sites") 
+
+# ggplot with geompoint and facet wrap
+ggplot(data = dataset) + 
+  geom_point(mapping = aes(x = Month, y = Turbidity, color = ObservationSite)) + 
+  facet_wrap(~ Year, nrow = 2)+ggtitle("Turbidity differences between North and West sites") 
+```
+
+## Analysis By Creating R Plots for pH level of water with respect to Dissolved Oxygen and Alkalinity For North Site.
+
+For the below plots, a new cleaned dataset **"North Site.csv"** was created. The dataset consists of data from 2013-2017 and observations belonging only for the North site. 
+
+
+#### **R plots for pH level of water with respect to Dissolved Oxygen**
+
+
+```{r hist, echo=FALSE, warning=FALSE}
+North_Site <- read.csv("North Site.csv")
+lm1=lm(formula = North_Site$pH ~ North_Site$Dissolved.Oxygen)
+summary(lm1) #show analysis results
+
+autoplot(lm1) #generate plots
+
+# calculate the regression ANOVA 
+SSTotal <- var( North_Site$pH ) * (nrow(North_Site)-1)
+SSE     <- sum( lm1$resid^2 )
+SSreg   <- SSTotal - SSE
+dfE   <- lm1$df.residual
+dfReg <- nrow(North_Site) - 1 - dfE
+MSreg <- SSreg / dfReg
+MSE   <- SSE / dfE
+(Fstat <- MSreg / MSE) # compare this with the summary() result earlier
+3.503382
+(pval  <- pf( Fstat , dfReg, dfE , lower.tail=FALSE )) # compare this with the summary() result earlier
+0.06235779
+```
+
+A simple linear regression was applied to predict a continuous outcome variable (y)  which pH value of water in this case based on one single predictor variable (x) which is level of Dissolved Oxygen in water in this case for North Site.
+The outcome of linear regression model was plotted using ggplot which provides us with the above mentioned plot.
+The conclusions so drawn from ggplots are:-
+
+  1. **Residual Vs Fitted**: Used to check the linear relationship assumptions. A horizontal line, without distinct patterns is an indication for a linear relationship, which is good. In this case there is almost no pattern in the residual plot. This suggests that we cannot assume linear relationship between the predictors and the outcome variables.
+
+  2. **Normal Q-Q**: Used to examine whether the residuals are normally distributed. It’s good if residuals points follow the straight dashed line. In this case many observations are far away from the expected line therefore not normally distributed.
+
+  3. **Standardized Residual Plot**: The plot shows if residuals are spread equally along the ranges of predictors. It’s good if we see a horizontal line with equally spread points. In this case, this is not the case. It can be seen that the variability (variances) of the residual points is haphazard with the value of the fitted outcome variable, suggesting no non-constant variances in the residuals errors.
+
+  4. **Residue Vs Leverage**: Used to identify influential cases, that is extreme values that might influence the regression results when included or excluded from the analysis. In this case the two observations 186 and 188 show high leverage point and should be well investigated.
+
+
+#### **R plots for pH level of water with respect to Alkalinity** 
+
+
+```{r hist2, echo=FALSE, warning=FALSE}
+lm2=lm(formula = North_Site$pH~North_Site$Alkalinity)
+summary(lm2) #show analysis results
+
+autoplot(lm2) #generate plots
+
+# calculate the regression ANOVA 
+SSTotal <- var( North_Site$pH ) * (nrow(North_Site)-1)
+SSE     <- sum( lm2$resid^2 )
+SSreg   <- SSTotal - SSE
+dfE   <- lm2$df.residual
+dfReg <- nrow(North_Site) - 1 - dfE
+MSreg <- SSreg / dfReg
+MSE   <- SSE / dfE
+(Fstat <- MSreg / MSE) # compare this with the summary() result earlier
+0.05584194
+(pval  <- pf( Fstat , dfReg, dfE , lower.tail=FALSE )) # compare this with the summary() result earlier
+0.8133776
+
+```
+
+A simple linear regression was applied to predict a continuous outcome variable (y)  which pH value of water in this case based on one single predictor variable (x) which is level of Dissolved Oxygen in water in this case for West Site.
+The outcome of linear regression model was plotted using ggplot which provides us with the above mentioned plot.
+The conclusions so drawn from ggplots are:-
+
+  1. **Residual Vs Fitted**: Used to check the linear relationship assumptions. A horizontal line, without distinct patterns is an indication for a linear relationship, which is good. In this case there is no fitted pattern in the residual plot. This suggests that we can assume linear relationship between the predictors and the outcome variables.
+
+  2. **Normal Q-Q**: Used to examine whether the residuals are normally distributed. It’s good if residuals points follow the straight dashed line. In this case many observations are far away from the expected line therefore not normally distributed.
+
+  3. **Standardized Residual Plot**: The plot shows if residuals are spread equally along the ranges of predictors. It’s good if we see a horizontal line with equally spread points. In this case, this is not the case. It can be seen that the variability (variances) of the residual points is random with the value of the fitted outcome variable, suggesting no non-constant variances in the residuals errors.
+
+  4. **Residue Vs Leverage**: Used to identify influential cases, that is extreme values that might influence the regression results when included or excluded from the analysis. In this case the three observations visible as high leverage points and should be well investigated.
+
+## E coli Value for North and West sites
+
+```{r ggplot1, echo=FALSE, warning=FALSE}
+Nishi_dataset <- read.csv("Ecoli_precipitation.csv")
+ggplot (Nishi_dataset, mapping = aes(x = Month, y = Ecoli, color = ObservationSite)) +geom_jitter()+ facet_grid(facets= vars(Year)) + ggtitle ("Ecoli value in north and west site")
+
+```
+
+The above graph shows the E.coli value from the year 2013 to 2017 for the North and West sites. As we know that E.coli value in water should not be exceeded 575 colonies per 100 ml of water. Based on our analysis, the amount of E-coli was usually higher than the standard value in the west site compared to the north site. In fact, we can also see that there is a significant difference between north and west site water in terms of E.coli. There is no specific month for the high value of E.coli. We also checked the precipitation event preceding the date when E.coli value is higher. However, we don’t have any precipitation data for that day. Therefore, we concluded that there must be some other ways for contamination water to enter the water stream between the north and west sites which contains animal or human waste. We need to look over those places and try to block those water entering areas or Spread the awareness of water to the locals, farmers, and everyone.
+
+## Precipitation Value for North and West sites
+
+```{r ggplot, echo=FALSE, warning=FALSE}
+ggplot (Nishi_dataset, mapping = aes(x = Month, y = Precipitation, color = ObservationSite)) +geom_jitter()+ facet_grid(facets= vars(Year)) + ggtitle ("Precipitation value in north and west site")
+
+```
+
+
+
+
