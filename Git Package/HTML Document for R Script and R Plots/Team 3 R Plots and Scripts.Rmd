@@ -26,7 +26,7 @@ Following are the issues that were observed in the data set provided by the stak
 * Number of Decimal places of decimal values is not uniformed along the dataset.
 
 ## Instructions
-These are the preliminary steps to create MasterWaterQualityEntryAdded.xlsx:  
+These are the preliminary steps to create MasterWaterQualityEntryAdded.xlsx:-
 - Filled in Temperature and Precipitation by using extra spreadsheets from Jesse  
 - Calculated the mean for pH, Conductivity, and DissolvedOxygen columns  
 - Filled empty cells of pH, Conductivity, and Dissolved columns with the calculated means
